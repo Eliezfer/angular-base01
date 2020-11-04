@@ -4,13 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HttpClientModule} from '@angular/common/http'
+import { SrvBusquedaService} from './services/srv-busqueda.service';
+import { CmpBusquedaComponent } from './componente/cmp-busqueda/cmp-busqueda.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CmpBusquedaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
