@@ -6,7 +6,7 @@ import {  SrvBusquedaService} from './services/srv-busqueda.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  constructor(private SrvEliService:SrvBusquedaService){
+  constructor(private ServicioBuscarService:SrvBusquedaService){
     
   }
   ngOnInit(){ 

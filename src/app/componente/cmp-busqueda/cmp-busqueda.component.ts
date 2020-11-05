@@ -13,18 +13,19 @@ import {SrvBusquedaService} from '../../services/srv-busqueda.service'
 export class CmpBusquedaComponent implements OnInit {
 
   resultadoBusqueda: InterfaceBusqueda;
-  constructor(private ServioBuscar:SrvBusquedaService){ }
+busquedaQuery: string;
+  constructor(private ServicioBuscarService:SrvBusquedaService){ }
 
   ngOnInit(): void {
-    this.ServioBuscar.busqueda('Eliezer').then((response)=>{
+    this.ServicioBuscarService.busqueda('Eliezer').then((response)=>{
       this.resultadoBusqueda = response;
     },(error) => {
       alert('Error:'+ error.statusText)
     })
   }
 
-  busquedaGit = (query:string) => {
-    this.ServioBuscar.busqueda(query).then((response) =>{
+  busquedaGit = () => {
+    this.ServicioBuscarService.busqueda(this.busquedaQuery).then((response) =>{
       this.resultadoBusqueda = response;
     },(error) =>{
       alert("error:" + error.statusText)

@@ -1,14 +1,23 @@
+<input [(ngModel)]="busquedaQuery" name="query" placeholder="Buscar..." >
 
-<h3>Resultados: {{resultadoBusqueda.total_count}}</h3>
+<button (click)="busquedaGit()">Buscar</button>
 
-<ul>
-    <li *ngFor="let elemento of resultadoBusqueda.items" >
-        <a [href]="elemento.html_url">
-            <img [src]="elemento.owner.avatar_url">
-            <h4>{{elemento.name}}
-                <small>by {{elemento.owner.login}}</small>
-            </h4>
-        </a>
-        <p>{{elemento.description}}</p>
-    </li>
-</ul>
+<div *ngIf ="resultadoBusqueda; else elseBlock">
+    <h3 class="total">Resultados: {{resultadoBusqueda.total_count}}</h3>
+        <ul class="lista">
+            <li [ngStyle] = "{'background-color' : (i % 2 === 0) ? 'silver' : 'white'}" class="lista-item"
+            *ngFor="let elemento of resultadoBusqueda.items; index as i;" >
+                <a [href]="elemento.html_url">
+                    <img class="avatar" [src]="elemento.owner.avatar_url">
+                    <h4 class="name">{{elemento.name}}
+                        <small>by {{elemento.owner.login | uppercase}}</small>
+                    </h4>
+                </a>
+                <p class="description">{{elemento.description}}</p>
+                <p> Fecha de creacion: {{elemento.created_at | date:'fullDate'}}</p>
+            </li>
+        </ul>
+</div>
+<ng-template #elseBlock>Loading</ng-template>
+
+    
