@@ -9,10 +9,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http'
 import { SrvBusquedaService} from './services/srv-busqueda.service';
 import { CmpBusquedaComponent } from './componente/cmp-busqueda/cmp-busqueda.component';
+import { PrincipalComponent } from './componente/principal/principal.component';
+import { PagenotFoundComponent } from './componente/pagenot-found/pagenot-found.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CmpBusquedaComponent
+    CmpBusquedaComponent,
+    PrincipalComponent,
+    PagenotFoundComponent
   ],
   imports: [
     BrowserModule,
